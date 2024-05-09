@@ -58,7 +58,7 @@ public class CreateNewImageTests
         task.ImageTags = new[] { "latest" };
         task.WorkingDirectory = "app/";
         task.ContainerRuntimeIdentifier = "linux-arm64";
-        task.Entrypoint = new TaskItem[] { new("dotnet"), new("build") };
+        task.Entrypoint = ["dotnet", "build"];
         task.RuntimeIdentifierGraphPath = ToolsetUtils.GetRuntimeGraphFilePath();
 
         Assert.True(task.Execute(), FormatBuildMessages(errors));
@@ -121,7 +121,7 @@ public class CreateNewImageTests
         cni.OutputRegistry = "localhost:5010";
         cni.PublishDirectory = Path.Combine(newProjectDir.FullName, "bin", "release", ToolsetInfo.CurrentTargetFramework);
         cni.WorkingDirectory = "app/";
-        cni.Entrypoint = new TaskItem[] { new(newProjectDir.Name) };
+        cni.Entrypoint = [newProjectDir.Name];
         cni.ImageTags = pcp.NewContainerTags;
         cni.ContainerRuntimeIdentifier = "linux-x64";
         cni.RuntimeIdentifierGraphPath = ToolsetUtils.GetRuntimeGraphFilePath();
@@ -193,7 +193,7 @@ public class CreateNewImageTests
         cni.OutputRegistry = pcp.NewContainerRegistry;
         cni.PublishDirectory = Path.Combine(newProjectDir.FullName, "bin", "release", ToolsetInfo.CurrentTargetFramework, "linux-x64");
         cni.WorkingDirectory = "/app";
-        cni.Entrypoint = new TaskItem[] { new($"/app/{newProjectDir.Name}") };
+        cni.Entrypoint = [$"/app/{newProjectDir.Name}"];
         cni.ImageTags = pcp.NewContainerTags;
         cni.ContainerEnvironmentVariables = pcp.NewContainerEnvironmentVariables;
         cni.ContainerRuntimeIdentifier = "linux-x64";
@@ -279,7 +279,7 @@ public class CreateNewImageTests
         task.ImageTags = new[] { "latest" };
         task.WorkingDirectory = "app/";
         task.ContainerRuntimeIdentifier = "linux-x64";
-        task.Entrypoint = new TaskItem[] { new("dotnet"), new("build") };
+        task.Entrypoint = ["dotnet", "build"];
         task.RuntimeIdentifierGraphPath = ToolsetUtils.GetRuntimeGraphFilePath();
 
         Assert.True(task.Execute());
