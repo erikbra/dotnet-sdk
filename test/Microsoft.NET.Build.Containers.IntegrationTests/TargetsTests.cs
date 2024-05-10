@@ -42,7 +42,7 @@ public class TargetsTests
         char s = Path.DirectorySeparatorChar;
         return new TheoryData<string, string, bool, string[]>
         {
-            { "win", "SelfContained", true, [$"C:\\app\\foo.exe"] },
+            { "win", "SelfContained", true, [$"C:{s}app{s}foo.exe"] },
             { "win", "SelfContained", false, ["dotnet", $"C:{s}app{s}foo.dll"] },
             { "win", "PublishSelfContained", true, [$"C:{s}app{s}foo.exe"] },
             { "win", "PublishSelfContained", false, ["dotnet", $"C:{s}app{s}foo.dll"] },
