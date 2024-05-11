@@ -313,11 +313,11 @@ public sealed partial class CreateNewImage : Microsoft.Build.Utilities.Task, ICa
 
     internal (string[] entrypoint, string[] cmd) DetermineEntrypointAndCmd(string[]? baseImageEntrypoint)
     {
-        string[] entrypoint = Entrypoint.Select(i => i.ItemSpec).ToArray();
-        string[] entrypointArgs = EntrypointArgs.Select(i => i.ItemSpec).ToArray();
-        string[] cmd = DefaultArgs.Select(i => i.ItemSpec).ToArray();
-        string[] appCommand = AppCommand.Select(i => i.ItemSpec).ToArray();
-        string[] appCommandArgs = AppCommandArgs.Select(i => i.ItemSpec).ToArray();
+        string[] entrypoint = Entrypoint;
+        string[] entrypointArgs = EntrypointArgs;
+        string[] cmd = DefaultArgs;
+        string[] appCommand = AppCommand;
+        string[] appCommandArgs = AppCommandArgs;
         string appCommandInstruction = AppCommandInstruction;
 
         return ImageBuilder.DetermineEntrypointAndCmd(entrypoint, entrypointArgs, cmd, appCommand, appCommandArgs, appCommandInstruction, baseImageEntrypoint,

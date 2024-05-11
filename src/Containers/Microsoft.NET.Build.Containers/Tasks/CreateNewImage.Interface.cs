@@ -81,27 +81,27 @@ partial class CreateNewImage
     /// The entrypoint application of the container.
     /// </summary>
     [Required]
-    public ITaskItem[] Entrypoint { get; set; }
+    public string[] Entrypoint { get; set; }
 
     /// <summary>
     /// Arguments to pass alongside Entrypoint.
     /// </summary>
-    public ITaskItem[] EntrypointArgs { get; set; }
+    public string[] EntrypointArgs { get; set; }
 
     /// <summary>
     /// Default arguments passed. These can be overridden by the user when the container is created.
     /// </summary>
-    public ITaskItem[] DefaultArgs { get; set; }
+    public string[] DefaultArgs { get; set; }
 
     /// <summary>
     /// The file name and arguments that launch the application. For example: ['dotnet', 'app.dll'].
     /// </summary>
-    public ITaskItem[] AppCommand { get; set; }
+    public string[] AppCommand { get; set; }
 
     /// <summary>
     /// Arguments always passed to the application.
     /// </summary>
-    public ITaskItem[] AppCommandArgs { get; set; }
+    public string[] AppCommandArgs { get; set; }
 
     /// <summary>
     /// The Dockerfile instruction used for AppCommand. Can be set to 'DefaultArgs', 'Entrypoint', 'None', '' (default).
@@ -187,11 +187,11 @@ partial class CreateNewImage
         ImageTags = Array.Empty<string>();
         PublishDirectory = "";
         WorkingDirectory = "";
-        Entrypoint = Array.Empty<ITaskItem>();
-        EntrypointArgs = Array.Empty<ITaskItem>();
-        DefaultArgs = Array.Empty<ITaskItem>();
-        AppCommand = Array.Empty<ITaskItem>();
-        AppCommandArgs = Array.Empty<ITaskItem>();
+        Entrypoint = Array.Empty<string>();
+        EntrypointArgs = Array.Empty<string>();
+        DefaultArgs = Array.Empty<string>();
+        AppCommand = Array.Empty<string>();
+        AppCommandArgs = Array.Empty<string>();
         AppCommandInstruction = "";
         Labels = Array.Empty<ITaskItem>();
         ExposedPorts = Array.Empty<ITaskItem>();

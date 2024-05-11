@@ -77,11 +77,11 @@ public class CreateNewImageTests
     {
         var newImage = new CreateNewImage()
         {
-            Entrypoint = CreateTaskItems(entrypoint),
-            EntrypointArgs = CreateTaskItems(entrypointArgs),
-            DefaultArgs = CreateTaskItems(defaultArgs),
-            AppCommand = CreateTaskItems(appCommand),
-            AppCommandArgs = CreateTaskItems(appCommandArgs),
+            Entrypoint = CreateStrings(entrypoint),
+            EntrypointArgs = CreateStrings(entrypointArgs),
+            DefaultArgs = CreateStrings(defaultArgs),
+            AppCommand = CreateStrings(appCommand),
+            AppCommandArgs = CreateStrings(appCommandArgs),
             AppCommandInstruction = appCommandInstruction,
             BuildEngine = new Mock<IBuildEngine>().Object
         };
@@ -92,7 +92,7 @@ public class CreateNewImageTests
         Assert.Equal(expectedEntrypoint ?? Array.Empty<string>(), imageEntrypoint);
         Assert.Equal(expectedCmd ?? Array.Empty<string>(), imageCmd);
 
-        static ITaskItem[] CreateTaskItems(string value)
-            => value.Split(';', StringSplitOptions.RemoveEmptyEntries).Select(s => new TaskItem(s)).ToArray();
+        static string[] CreateStrings(string value)
+            => value.Split(';', StringSplitOptions.RemoveEmptyEntries);
     }
 }

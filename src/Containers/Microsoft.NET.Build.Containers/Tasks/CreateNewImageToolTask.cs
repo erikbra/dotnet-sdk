@@ -204,9 +204,9 @@ public partial class CreateNewImage : ToolTask, ICancelableTask
 
         return builder.ToString();
 
-        void AppendSwitchIfNotNullSanitized(CommandLineBuilder builder, string commandArgName, string propertyName, ITaskItem[] value)
+        void AppendSwitchIfNotNullSanitized(CommandLineBuilder builder, string commandArgName, string propertyName, string[] value)
         {
-            ITaskItem[] santized = value.Where(e => !string.IsNullOrWhiteSpace(e.ItemSpec)).ToArray();
+            string[] santized = value.Where(s => !string.IsNullOrWhiteSpace(s)).ToArray();
             if (santized.Length != value.Length)
             {
                 Log.LogWarningWithCodeFromResources(nameof(Strings.EmptyValuesIgnored), propertyName);

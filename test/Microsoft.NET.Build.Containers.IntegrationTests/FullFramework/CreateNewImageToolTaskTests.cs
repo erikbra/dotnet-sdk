@@ -74,7 +74,7 @@ public class CreateNewImageToolTaskTests
         task.BaseImageName = "MyBaseImageName";
         task.Repository = "MyImageName";
         task.WorkingDirectory = "MyWorkingDirectory";
-        task.Entrypoint = new[] { new TaskItem("MyEntryPoint") };
+        task.Entrypoint = ["MyEntryPoint"];
 
         if (value != null)
         {
@@ -108,7 +108,7 @@ public class CreateNewImageToolTaskTests
         task.BaseImageName = "MyBaseImageName";
         task.Repository = "MyImageName";
         task.WorkingDirectory = "MyWorkingDirectory";
-        task.Entrypoint = new[] { new TaskItem("MyEntryPoint") };
+        task.Entrypoint = ["MyEntryPoint"];
 
         if (value != null)
         {
@@ -141,7 +141,7 @@ public class CreateNewImageToolTaskTests
         task.BaseImageName = "MyBaseImageName";
         task.Repository = "MyImageName";
         task.WorkingDirectory = "MyWorkingDirectory";
-        task.Entrypoint = new[] { new TaskItem("MyEntryPoint") };
+        task.Entrypoint = ["MyEntryPoint"];
 
         if (value != null)
         {
@@ -173,7 +173,7 @@ public class CreateNewImageToolTaskTests
         task.BaseImageName = "MyBaseImageName";
         task.Repository = "MyImageName";
         task.WorkingDirectory = "MyWorkingDirectory";
-        task.Entrypoint = new[] { new TaskItem("MyEntryPoint") };
+        task.Entrypoint = ["MyEntryPoint"];
 
         if (value != null)
         {
@@ -209,7 +209,7 @@ public class CreateNewImageToolTaskTests
         task.BaseImageName = "MyBaseImageName";
         task.Repository = "MyImageName";
         task.WorkingDirectory = "MyWorkingDirectory";
-        task.Entrypoint = new[] { new TaskItem("MyEntryPoint") };
+        task.Entrypoint = ["MyEntryPoint"];
 
         task.Labels = new[]
         {
@@ -255,7 +255,7 @@ public class CreateNewImageToolTaskTests
         task.BaseImageName = "MyBaseImageName";
         task.Repository = "MyImageName";
         task.WorkingDirectory = "MyWorkingDirectory";
-        task.Entrypoint = new[] { new TaskItem("MyEntryPoint") };
+        task.Entrypoint = ["MyEntryPoint"];
 
         task.ContainerEnvironmentVariables = new[]
         {
@@ -306,56 +306,56 @@ public class CreateNewImageToolTaskTests
         task.BaseImageName = "MyBaseImageName";
         task.Repository = "MyImageName";
         task.WorkingDirectory = "MyWorkingDirectory";
-        task.Entrypoint = new[] { new TaskItem("MyEntryPoint") };
+        task.Entrypoint = ["MyEntryPoint"];
 
         switch (propertyName)
         {
             case nameof(CreateNewImage.Entrypoint):
                 task.Entrypoint = new[]
                 {
-                    new TaskItem("Valid1"),
-                    new TaskItem("Valid2"),
-                    new TaskItem("Quoted item")
+                    "Valid1",
+                    "Valid2",
+                    "Quoted item"
                 };
                 break;
             case nameof(CreateNewImage.EntrypointArgs):
                 task.EntrypointArgs = new[]
                 {
-                    new TaskItem(""),
-                    new TaskItem(" "),
-                    new TaskItem("Valid1"),
-                    new TaskItem("Valid2"),
-                    new TaskItem("Quoted item")
+                    "",
+                    " ",
+                    "Valid1",
+                    "Valid2",
+                    "Quoted item"
                 };
                 break;
             case nameof(CreateNewImage.DefaultArgs):
                 task.DefaultArgs = new[]
                 {
-                    new TaskItem(""),
-                    new TaskItem(" "),
-                    new TaskItem("Valid1"),
-                    new TaskItem("Valid2"),
-                    new TaskItem("Quoted item")
+                    "",
+                    " ",
+                    "Valid1",
+                    "Valid2",
+                    "Quoted item"
                 };
                 break;
             case nameof(CreateNewImage.AppCommand):
                 task.AppCommand = new[]
                 {
-                    new TaskItem(""),
-                    new TaskItem(" "),
-                    new TaskItem("Valid1"),
-                    new TaskItem("Valid2"),
-                    new TaskItem("Quoted item")
+                    "",
+                    " ",
+                    "Valid1",
+                    "Valid2",
+                    "Quoted item"
                 };
                 break;
             case nameof(CreateNewImage.AppCommandArgs):
                 task.AppCommandArgs = new[]
                 {
-                    new TaskItem(""),
-                    new TaskItem(" "),
-                    new TaskItem("Valid1"),
-                    new TaskItem("Valid2"),
-                    new TaskItem("Quoted item")
+                    "",
+                    " ",
+                    "Valid1",
+                    "Valid2",
+                    "Quoted item"
                 };
                 break;
         }
@@ -396,7 +396,7 @@ public class CreateNewImageToolTaskTests
         task.BaseImageName = "MyBaseImageName";
         task.Repository = "MyImageName";
         task.WorkingDirectory = "MyWorkingDirectory";
-        task.Entrypoint = new[] { new TaskItem(itemValue) };
+        task.Entrypoint = [itemValue];
 
         task.GenerateCommandLineCommandsInt();
     }
@@ -450,7 +450,7 @@ public class CreateNewImageToolTaskTests
         task.BaseImageName = "MyBaseImageName";
         task.Repository = "MyImageName";
         task.WorkingDirectory = "MyWorkingDirectory";
-        task.Entrypoint = new[] { new TaskItem("MyEntryPoint") };
+        task.Entrypoint = ["MyEntryPoint"];
 
         task.ImageTags = new[] { "", " ", "Valid1", "To be quoted" };
 
@@ -487,7 +487,7 @@ public class CreateNewImageToolTaskTests
         task.BaseImageName = "MyBaseImageName";
         task.Repository = "MyImageName";
         task.WorkingDirectory = "MyWorkingDirectory";
-        task.Entrypoint = new[] { new TaskItem("MyEntryPoint") };
+        task.Entrypoint = ["MyEntryPoint"];
 
         task.ExposedPorts = new[]
         {
@@ -526,8 +526,7 @@ public class CreateNewImageToolTaskTests
         task.BaseImageName = "MyBaseImageName";
         task.Repository = "MyImageName";
         task.WorkingDirectory = "MyWorkingDirectory";
-        task.Entrypoint = new[] { new TaskItem("") };
-        task.Entrypoint = new[] { new TaskItem("MyEntryPoint") };
+        task.Entrypoint = ["MyEntryPoint"];
 
         string args = task.GenerateCommandLineCommandsInt();
         string workDir = GetPathToContainerize();
@@ -552,8 +551,7 @@ public class CreateNewImageToolTaskTests
         task.BaseImageName = "MyBaseImageName";
         task.Repository = "MyImageName";
         task.WorkingDirectory = "MyWorkingDirectory";
-        task.Entrypoint = new[] { new TaskItem("") };
-        task.Entrypoint = new[] { new TaskItem("MyEntryPoint") };
+        task.Entrypoint = ["MyEntryPoint"];
 
         string args = task.GenerateCommandLineCommandsInt();
         string workDir = GetPathToContainerize();
@@ -582,7 +580,7 @@ public class CreateNewImageToolTaskTests
         task.BaseImageName = "MyBaseImageName";
         task.Repository = "MyImageName";
         task.WorkingDirectory = "MyWorkingDirectory";
-        task.Entrypoint = new[] { new TaskItem("MyEntryPoint") };
+        task.Entrypoint = ["MyEntryPoint"];
         task.GenerateLabels = true;
         task.GenerateDigestLabel = true;
 
